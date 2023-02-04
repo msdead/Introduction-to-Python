@@ -21,3 +21,52 @@
 # ноутбук
 # Вывод:
 # 12
+
+
+# 1 Метод взят с интернета!!!
+
+# import re
+# def isCyrillic(text):
+# 	return bool(re.search('[а-яА-Я]', text))
+# points_en = {1:'AEIOULNSTR',
+#       	2:'DG',
+#       	3:'BCMP',
+#       	4:'FHVWY',
+#       	5:'K',
+#       	8:'JZ',
+#       	10:'QZ'}
+# points_ru = {1:'АВЕИНОРСТ',
+#       	2:'ДКЛМПУ',
+#       	3:'БГЁЬЯ',
+#       	4:'ЙЫ',
+#       	5:'ЖЗХЦЧ',
+#       	8:'ШЭЮ',
+#       	10:'ФЩЪ'}
+# text = input().upper()
+# if isCyrillic(text):
+# 	print(sum([k for i in text for k, v in points_ru.items() if i in v]))
+# else:
+# 	print(sum([k for i in text for k, v in points_en.items() if i in v]))
+
+
+# 2 Метод. Собственная реализация с упором на собственные знания, информацию в интернете и пример метода 1 !!!
+
+text = input("Введите слово:  " ).upper()
+from lingua import Language, LanguageDetectorBuilder
+languages = [Language.ENGLISH, Language.RUSSIAN]
+detector = LanguageDetectorBuilder.from_languages(*languages).build()
+
+summa = 0
+if detector.detect_language_of(text) == Language.RUSSIAN:
+    points_ru = {1:'АВЕИНОРСТ', 2:'ДКЛМПУ', 3:'БГЁЬЯ', 4:'ЙЫ', 5:'ЖЗХЦЧ', 8:'ШЭЮ', 10:'ФЩЪ'}            
+    for i in text: 
+        for k,v in points_ru.items():
+            if i in v:
+                summa += k
+if detector.detect_language_of(text) == Language.ENGLISH:
+    points_en = {1:'AEIOULNSTR', 2:'DG', 3:'BCMP', 4:'FHVWY', 5:'K', 8:'JZ', 10:'QZ'}           
+    for i in text: 
+        for k,v in points_en.items():
+            if i in v:
+                summa += k     
+print(summa)

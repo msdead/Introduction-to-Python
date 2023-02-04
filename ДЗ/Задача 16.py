@@ -16,4 +16,4 @@ count = 0
 for i in range(len(n)):
     if n[i] == m:
         count += 1 
-print(count)
+print("Количество искомого числа в массиве = ",count)
