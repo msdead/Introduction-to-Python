@@ -13,6 +13,7 @@ n = int(input("Введите количество вводимых чисел n
 n = [0] * n
 for i in range(len(n)):
     n[i] = int(input(f"Введите число {i+1}:  "))
+    
 m = int(input("Введите количество вводимых чисел n:  "))
 m = [0] * m
 for i in range(len(m)):
@@ -22,10 +23,9 @@ rn = []
 c = 0
 
 for i in n:
-    for j in m:
-        if i == j:
-            rn.append(i)
-            c += 1
+    if i in m:
+        rn.append(i)
+        c += 1
 
 rn = list(set(rn))
 rn.sort()
