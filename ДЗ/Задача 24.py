@@ -8,3 +8,21 @@
 # 4 -> 1 2 3 4
 # 9
 
+
+n = int(input("Введите количество кустов:  "))
+n = [0] * n
+for i in range(len(n)):
+    n[i] = int(input(f"Введите число ягод на {i+1} кусте:  "))
+    
+lis = n + n[:2]
+m = 0
+
+if len(n) == 1:
+    m = lis[i]
+if len(n) == 2:
+    m = lis[i] + lis[i+1] 
+if len(n) >= 3:
+    for i in range(len(n)):
+        m = max( m, lis[i] + lis[i+1] + lis[i+2] )           
+    
+print(m)
