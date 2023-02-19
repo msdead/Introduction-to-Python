@@ -18,12 +18,13 @@ text = text.split()
 
 
 count = 0
-glasnye = 'а'
+glasnye = 'а, и, е, ё, о, у, ы, э, ю, я'
 
 for x in range(len(text)):
     for y in text[x]:
-        if y == glasnye:
-            count += 1
+        for v in glasnye:
+            if y == v:
+                count += 1
     if x == 0:
         a = count
         count = 0
