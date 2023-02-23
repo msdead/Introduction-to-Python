@@ -17,7 +17,7 @@ def interface():
     elif command_number == 2:
         print_data()
     elif command_number == 3:
-        print("Введите параметр поиска через ';': ")
+        print("Введите параметр поиска через '; ': ")
         filter_string = input()
         filter_data(filter_string)
     elif command_number == 4:
